@@ -25,3 +25,7 @@
 .ap-tabs-w section::-webkit-scrollbar {
   display: none;
 }
+
+.ap-tabs-w section > div.selected {
+  border-bottom: none;
+}

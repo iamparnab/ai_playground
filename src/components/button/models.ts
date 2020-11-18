@@ -3,4 +3,3 @@ export type Props = {
   onClick: Function;
   themeType: 1 | 2;
 };
-export type State = {};

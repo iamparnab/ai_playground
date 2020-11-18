@@ -23,7 +23,13 @@ export default class Tabs extends React.Component<Props, State> {
         <section>
           {this.props.availiableTabs.map((eachTab: EachTabType) => {
             return (
-              <div className="clickable" key={eachTab.tabId}>
+              <div
+                className={`clickable ${
+                  this.props.selectedTabId === eachTab.tabId ? 'selected' : null
+                }`}
+                key={eachTab.tabId}
+                onClick={() => this.props.onSelect(eachTab.tabId)}
+              >
                 {eachTab.tabName}
               </div>
             );

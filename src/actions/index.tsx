@@ -8,3 +8,12 @@ export function addNewTab(tabName: string): ActionType {
     },
   };
 }
+
+export function selectTab(tabId: number): ActionType {
+  return {
+    type: Actions.SELECT_TAB,
+    payload: {
+      tabId,
+    },
+  };
+}

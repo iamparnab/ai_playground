@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNewTab } from '../../actions';
+import { addNewTab, selectTab } from '../../actions';
 import { StoreType } from '../../store/model';
 import Button from '../button';
 import MonacoWrapper from '../monaco-wrapper';
@@ -15,7 +15,9 @@ class Editor extends React.Component<Props, State> {
       <section className="ap-editor-w">
         <div className="header">
           <Tabs
+            selectedTabId={this.props.selectedTabId}
             availiableTabs={this.props.tabs}
+            onSelect={(tabId) => this.props.selectTab(tabId)}
             onCreate={(tabName) => this.props.addNewTab(tabName)}
           />
           <div className="btn-wrapper">
@@ -28,6 +30,13 @@ class Editor extends React.Component<Props, State> {
   }
 }
 
-export default connect((store: StoreType) => ({ tabs: store.tabs }), {
-  addNewTab,
-})(Editor);
+export default connect(
+  (store: StoreType) => ({
+    tabs: store.tabs,
+    selectedTabId: store.selectedTabid,
+  }),
+  {
+    addNewTab,
+    selectTab,
+  }
+)(Editor);
