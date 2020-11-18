@@ -1,5 +1,5 @@
 import { EachTabType } from '../components/tabs/models';
-import { EachChatType } from '../components/chatbot/models';
+import { EachChatType } from '../components/chatarea/models';
 
 export type StoreType = {
   tabs: EachTabType[];

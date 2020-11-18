@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { runQuery, updateChatInput } from '../../actions';
 import { StoreType } from '../../store/model';
+import { ChatArea } from '../chatarea';
 import { Props } from './models';
 
 import './styles.css';
@@ -14,15 +15,6 @@ class Chatbot extends React.Component<Props> {
     super(props);
     this.inputRef = React.createRef();
     this.chatWrapperRef = React.createRef();
-  }
-
-  componentDidUpdate(prevProps: Props) {
-    if (this.props.chats.length !== prevProps.chats.length) {
-      if (this.chatWrapperRef.current) {
-        const elem = this.chatWrapperRef.current;
-        elem.scrollTop = elem.scrollHeight;
-      }
-    }
   }
 
   handleKeyUp = (ev: React.KeyboardEvent<HTMLInputElement>) => {
@@ -40,19 +32,7 @@ class Chatbot extends React.Component<Props> {
     return (
       <section className="ap-cb-w">
         <div>
-          <section className="main-chat-area" ref={this.chatWrapperRef}>
-            {this.props.chats.map((eachChat) => {
-              return (
-                <div
-                  key={eachChat.id}
-                  className={`each-chat ${eachChat.sender}`}
-                >
-                  {eachChat.sender === 'bot' ? '🤖' : '🤓'}
-                  <div>{eachChat.text}</div>
-                </div>
-              );
-            })}
-          </section>
+          <ChatArea chats={this.props.chats} />
           <section className="chat-input">
             <input
               placeholder="Type message here…"

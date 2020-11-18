@@ -1,3 +1,5 @@
+import { EachChatType } from '../chatarea/models';
+
 export type _Props = {};
 
 type PropsFromConnect = {
@@ -8,12 +10,6 @@ type PropsFromConnect = {
 type ActionsFromConnect = {
   runQuery: (query: string) => void;
   updateChatInput: (chatInput: string) => void;
-};
-
-export type EachChatType = {
-  id: number;
-  text: string;
-  sender: 'user' | 'bot';
 };
 
 export type Props = _Props & PropsFromConnect & ActionsFromConnect;

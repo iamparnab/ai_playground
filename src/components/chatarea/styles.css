@@ -1,0 +1,35 @@
+.ap-ca-w {
+  width: 33rem;
+  height: 24.5rem;
+  padding: 1.25rem;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  margin-bottom: 2.125rem;
+  box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ap-ca-w .each-chat {
+  display: flex;
+}
+.ap-ca-w .each-chat > div {
+  background-color: var(--tertiary-bg-color);
+  border-radius: 16px;
+  padding-top: 0.9rem;
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--secondary-font-color);
+  margin-bottom: 1rem;
+  max-width: 80%;
+}
+.ap-ca-w .each-chat.user {
+  flex-direction: row-reverse;
+}
+
+.ap-ca-w .each-chat.user > div {
+  margin-right: 1.125rem;
+}
+.ap-ca-w .each-chat.bot > div {
+  margin-left: 1.125rem;
+}
