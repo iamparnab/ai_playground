@@ -8,4 +8,5 @@ export type StoreType = {
   codeToEvalute: string;
   chats: EachChatType[];
   chatInput: string;
+  hasContentChanged: boolean;
 };

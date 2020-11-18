@@ -6,7 +6,9 @@ import './styles.css';
 function Button(props: Props) {
   return (
     <button
-      className={`ap-button type-${props.themeType} clickable`}
+      className={`ap-button type-${props.themeType} clickable ${
+        props.disabled ? 'disabled' : null
+      }`}
       onClick={() => props.onClick()}
     >
       {props.title}

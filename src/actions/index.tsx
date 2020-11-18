@@ -54,7 +54,9 @@ export function runQuery(query: string): Function {
 
     const { codeToEvalute } = store.getState();
 
-    const response = await eval(`${codeToEvalute};init();respond('${query}')`);
+    const response = await eval(
+      `${codeToEvalute};init();respond('${query.replaceAll("'", "\\'")}')`
+    );
 
     dispatch({
       type: Actions.ADD_BOT_RESPONSE,

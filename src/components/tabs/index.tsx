@@ -61,6 +61,7 @@ export default class Tabs extends React.Component<Props> {
           title="+"
           onClick={() => this.props.onCreate('Untitled')}
           themeType={1}
+          disabled={false}
         />
       </div>
     );

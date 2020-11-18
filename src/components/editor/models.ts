@@ -10,4 +10,7 @@ type ActionsFromConnect = {
   applyChanges: () => void;
   removeTab: (tabId: number) => void;
 };
-type PropsFromConnect = { tabs: EachTabType[]; selectedTabId: number };
+type PropsFromConnect = {
+  tabs: EachTabType[];
+  selectedTabId: number;
+};

@@ -26,6 +26,7 @@ class Editor extends React.Component<Props> {
               onClick={() => this.props.applyChanges()}
               title="Apply changes"
               themeType={2}
+              disabled={false}
             />
           </div>
         </div>
