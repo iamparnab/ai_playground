@@ -1,0 +1,19 @@
+.ap-button {
+  color: var(--primary-font-color);
+  border: none;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.75rem;
+}
+.ap-button.type-1 {
+  background-color: var(--button-type1-bg-color);
+}
+.ap-button.type-2 {
+  color: #fff;
+  background-color: var(--button-type2-bg-color);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.ap-button.disabled {
+  background-color: var(--button-disabled-color);
+}

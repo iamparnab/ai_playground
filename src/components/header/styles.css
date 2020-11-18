@@ -1,0 +1,8 @@
+.ap-header-w {
+  color: var(--primary-font-color);
+  background-color: var(--primary-bg-color);
+  font-size: 1.125rem;
+  padding: 0.875rem 0rem 0.688rem 1.125rem;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.09);
+  margin-bottom: 0.3rem;
+}

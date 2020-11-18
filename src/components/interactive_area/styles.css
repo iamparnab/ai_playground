@@ -1,0 +1,7 @@
+.ap-ia-w {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-font-color);
+  height: calc(100vh - 49px);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}

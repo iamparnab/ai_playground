@@ -1,0 +1,27 @@
+.ap-tabs-w {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+}
+.ap-tabs-w section {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-right: 0.5rem;
+}
+.ap-tabs-w section > div {
+  border: 2px solid #2b2b2b;
+  border-radius: 4px 4px 0 0;
+  border-left: none;
+  padding: 0.5rem 0.9rem 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--primary-font-color);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.ap-tabs-w section > div:first-of-type {
+  border-left: 2px solid #2b2b2b;
+}
+.ap-tabs-w section::-webkit-scrollbar {
+  display: none;
+}
