@@ -47,6 +47,7 @@ class Chatbot extends React.Component<Props> {
                   key={eachChat.id}
                   className={`each-chat ${eachChat.sender}`}
                 >
+                  {eachChat.sender === 'bot' ? '🤖' : '🤓'}
                   <div>{eachChat.text}</div>
                 </div>
               );

@@ -8,5 +8,6 @@ type PropsFromConnect = {
 };
 type ActionsFromConnect = {
   setCode: (code: string) => void;
+  applyChanges: () => void;
 };
 export type Props = _Props & PropsFromConnect & ActionsFromConnect;

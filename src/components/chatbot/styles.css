@@ -52,5 +52,12 @@
   max-width: 80%;
 }
 .ap-cb-w .main-chat-area .each-chat.user {
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.ap-cb-w .main-chat-area .each-chat.user > div {
+  margin-right: 1.125rem;
+}
+.ap-cb-w .main-chat-area .each-chat.bot > div {
+  margin-left: 1.125rem;
 }

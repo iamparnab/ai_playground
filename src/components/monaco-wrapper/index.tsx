@@ -6,7 +6,7 @@ import './styles.css';
 import { Props } from './models';
 import { StoreType } from '../../store/model';
 import { DEFAULT_CODE } from '../../constants';
-import { setCode } from '../../actions';
+import { setCode, applyChanges } from '../../actions';
 
 class MonacoWrapper extends React.Component<Props> {
   componentDidUpdate(prevProps: Props) {
@@ -25,6 +25,7 @@ class MonacoWrapper extends React.Component<Props> {
   }
   componentDidMount() {
     this.props.setCode(DEFAULT_CODE);
+    this.props.applyChanges();
   }
 
   handleEditorChange = (_: any, value: string | undefined) => {
@@ -56,5 +57,5 @@ export default connect(
     selectedTabId: store.selectedTabId,
     code: store.code,
   }),
-  { setCode }
+  { setCode, applyChanges }
 )(MonacoWrapper);
