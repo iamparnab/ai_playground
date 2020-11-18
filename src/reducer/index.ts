@@ -7,6 +7,7 @@ import {
   ChatInputType,
   RunQueryType,
   BotResponseType,
+  RemoveTabType,
 } from '../actions/model';
 
 import { STORE_INIT } from '../store/constants';
@@ -18,17 +19,15 @@ export function rootReducer(
 ): StoreType {
   switch (action.type) {
     case Actions.ADD_NEW_TAB: {
+      const tabId = store.tabs[store.tabs.length - 1].tabId + 1;
       return {
         ...store,
         tabs: [
           ...store.tabs,
           {
-            tabId: store.tabs.length + 1,
+            tabId,
             tabName:
-              (action.payload as NewTabType).tabName +
-              ' ' +
-              (store.tabs.length + 1) +
-              '.js',
+              (action.payload as NewTabType).tabName + ' ' + tabId + '.js',
           },
         ],
       };
@@ -37,7 +36,7 @@ export function rootReducer(
     case Actions.SELECT_TAB: {
       return {
         ...store,
-        selectedTabid: (action.payload as SelectTabType).tabId,
+        selectedTabId: (action.payload as SelectTabType).tabId,
       };
     }
 
@@ -84,6 +83,14 @@ export function rootReducer(
             sender: 'bot',
           },
         ],
+      };
+    }
+
+    case Actions.REMOVE_TAB: {
+      const tabIdToDelete = (action.payload as RemoveTabType).tabId;
+      return {
+        ...store,
+        tabs: store.tabs.filter((t) => t.tabId !== tabIdToDelete),
       };
     }
   }

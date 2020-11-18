@@ -53,7 +53,7 @@ class MonacoWrapper extends React.Component<Props> {
 
 export default connect(
   (store: StoreType) => ({
-    selectedTabId: store.selectedTabid,
+    selectedTabId: store.selectedTabId,
     code: store.code,
   }),
   { setCode }

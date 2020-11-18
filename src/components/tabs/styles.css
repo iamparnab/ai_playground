@@ -29,3 +29,6 @@
 .ap-tabs-w section > div.selected {
   border-bottom-color: transparent;
 }
+.ap-tabs-w section > div .cross-mark {
+  margin-left: 4px;
+}

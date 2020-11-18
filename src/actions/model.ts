@@ -19,6 +19,10 @@ export type ChatInputType = {
 export type BotResponseType = {
   response: string;
 };
+export type RemoveTabType = {
+  tabId: number;
+};
+
 export enum Actions {
   ADD_NEW_TAB,
   SELECT_TAB,
@@ -27,9 +31,11 @@ export enum Actions {
   UPDATE_CHAT_INPUT,
   RUN_QUERY,
   ADD_BOT_RESPONSE,
+  REMOVE_TAB,
 }
 
 export type PayloadType =
+  | RemoveTabType
   | BotResponseType
   | ChatInputType
   | NewTabType

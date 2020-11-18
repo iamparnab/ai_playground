@@ -3,6 +3,7 @@ export type Props = {
   selectedTabId: number;
   onSelect: (tabId: number) => void;
   onCreate: (tabName: string) => void;
+  onRemove: (tabId: number) => void;
 };
 
 export type EachTabType = {

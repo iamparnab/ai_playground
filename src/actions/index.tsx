@@ -1,5 +1,5 @@
 import { Actions, ActionType } from './model';
-import { store } from '../store';
+import { DispatchType, store } from '../store';
 
 export function addNewTab(tabName: string): ActionType {
   return {
@@ -44,7 +44,7 @@ export function updateChatInput(chatInput: string): ActionType {
 }
 
 export function runQuery(query: string): Function {
-  return async function (dispatch: (action: ActionType) => void) {
+  return async function (dispatch: DispatchType) {
     dispatch({
       type: Actions.RUN_QUERY,
       payload: {
@@ -60,6 +60,19 @@ export function runQuery(query: string): Function {
       type: Actions.ADD_BOT_RESPONSE,
       payload: {
         response,
+      },
+    });
+  };
+}
+
+export function removeTab(tabId: number): Function {
+  return function (dispatch: DispatchType) {
+    localStorage.removeItem(`tabId_${tabId}`);
+
+    dispatch({
+      type: Actions.REMOVE_TAB,
+      payload: {
+        tabId,
       },
     });
   };

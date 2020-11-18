@@ -3,7 +3,7 @@ import { EachChatType } from '../components/chatbot/models';
 
 export type StoreType = {
   tabs: EachTabType[];
-  selectedTabid: number;
+  selectedTabId: number;
   code: string;
   codeToEvalute: string;
   chats: EachChatType[];
