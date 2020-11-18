@@ -1,15 +1,20 @@
 import React from 'react';
 import Button from '../button';
-import { State, Props, EachTabType } from './models';
+import { Props, EachTabType } from './models';
 
 import './styles.css';
 
-export default class Tabs extends React.Component<Props, State> {
+export default class Tabs extends React.Component<Props> {
   componentDidUpdate(prevProps: Props) {
     if (this.props.availiableTabs.length > prevProps.availiableTabs.length) {
-      const tabs = document.querySelectorAll('.ap-tabs-w>section>div');
-      if (tabs) {
-        tabs[tabs.length - 1].scrollIntoView({
+      /**
+       * Scroll to the newly added Tab
+       */
+      const lastTab = document.querySelector(
+        '.ap-tabs-w>section>div:last-of-type'
+      );
+      if (lastTab) {
+        lastTab.scrollIntoView({
           behavior: 'smooth',
           block: 'nearest',
         });

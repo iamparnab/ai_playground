@@ -27,5 +27,5 @@
 }
 
 .ap-tabs-w section > div.selected {
-  border-bottom: none;
+  border-bottom-color: transparent;
 }

@@ -1,4 +1,5 @@
 import { Actions, ActionType } from './model';
+import { store } from '../store';
 
 export function addNewTab(tabName: string): ActionType {
   return {
@@ -15,5 +16,51 @@ export function selectTab(tabId: number): ActionType {
     payload: {
       tabId,
     },
+  };
+}
+
+export function setCode(code: string): ActionType {
+  return {
+    type: Actions.SET_CODE,
+    payload: {
+      code,
+    },
+  };
+}
+
+export function applyChanges(): ActionType {
+  return {
+    type: Actions.APPLY_CHANGES,
+  };
+}
+
+export function updateChatInput(chatInput: string): ActionType {
+  return {
+    type: Actions.UPDATE_CHAT_INPUT,
+    payload: {
+      chatInput,
+    },
+  };
+}
+
+export function runQuery(query: string): Function {
+  return async function (dispatch: (action: ActionType) => void) {
+    dispatch({
+      type: Actions.RUN_QUERY,
+      payload: {
+        query,
+      },
+    });
+
+    const { codeToEvalute } = store.getState();
+
+    const response = await eval(`${codeToEvalute};init();respond('${query}')`);
+
+    dispatch({
+      type: Actions.ADD_BOT_RESPONSE,
+      payload: {
+        response,
+      },
+    });
   };
 }

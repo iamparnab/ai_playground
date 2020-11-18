@@ -3,7 +3,9 @@
   border: none;
   padding: 0.4rem 0.9rem;
   font-size: 0.75rem;
+  white-space: nowrap;
 }
+
 .ap-button.type-1 {
   background-color: var(--button-type1-bg-color);
 }

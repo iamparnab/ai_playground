@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
+  scrollbar-width: thin;
 }
 body {
   width: 100vw;
@@ -17,6 +18,8 @@ body {
   --button-type1-bg-color: #171717;
   --button-type2-bg-color: #66d68d;
   --button-disabled-bg-color: #454545;
+  --tertiary-bg-color: #404040;
+  font-size: 18px;
 }
 
 .clickable {

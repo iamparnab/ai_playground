@@ -4,5 +4,9 @@ type _Props = {
 
 type PropsFromConnect = {
   selectedTabId: number;
+  code: string;
 };
-export type Props = _Props & PropsFromConnect;
+type ActionsFromConnect = {
+  setCode: (code: string) => void;
+};
+export type Props = _Props & PropsFromConnect & ActionsFromConnect;

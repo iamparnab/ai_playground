@@ -4,11 +4,11 @@ import { store } from '../../store';
 
 import { Header } from '../header';
 import InteractiveArea from '../interactive_area';
-import { Props, State } from './models';
+import { Props } from './models';
 
 import './styles.css';
 
-class Container extends React.Component<Props, State> {
+class Container extends React.Component<Props> {
   render() {
     return (
       <main className="ap-main-w">
