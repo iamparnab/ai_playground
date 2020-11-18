@@ -8,10 +8,21 @@ import './styles.css';
 
 class Chatbot extends React.Component<Props> {
   inputRef: React.RefObject<HTMLInputElement>;
+  chatWrapperRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
     super(props);
     this.inputRef = React.createRef();
+    this.chatWrapperRef = React.createRef();
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.chats.length !== prevProps.chats.length) {
+      if (this.chatWrapperRef.current) {
+        const elem = this.chatWrapperRef.current;
+        elem.scrollTop = elem.scrollHeight;
+      }
+    }
   }
 
   handleKeyUp = (ev: React.KeyboardEvent<HTMLInputElement>) => {
@@ -29,7 +40,7 @@ class Chatbot extends React.Component<Props> {
     return (
       <section className="ap-cb-w">
         <div>
-          <section className="main-chat-area">
+          <section className="main-chat-area" ref={this.chatWrapperRef}>
             {this.props.chats.map((eachChat) => {
               return (
                 <div

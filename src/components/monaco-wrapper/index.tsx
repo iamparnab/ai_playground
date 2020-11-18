@@ -40,6 +40,11 @@ class MonacoWrapper extends React.Component<Props> {
           theme="vs-dark"
           value={this.props.code}
           onChange={this.handleEditorChange}
+          options={{
+            fontSize: 'inherit',
+            letterSpacing: '1px',
+            fontWeight: 'bold',
+          }}
         />
       </div>
     );
