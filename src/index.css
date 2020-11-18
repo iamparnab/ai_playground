@@ -4,8 +4,15 @@
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
   scrollbar-width: thin;
+  scrollbar-color: var(--primary-bg-color) transparent;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-bg-color);
+}
 body {
   width: 100vw;
   height: 100vh;

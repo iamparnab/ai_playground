@@ -32,7 +32,9 @@ class Chatbot extends React.Component<Props> {
     return (
       <section className="ap-cb-w">
         <div>
-          <ChatArea chats={this.props.chats} />
+          <section className="chatarea-wrapper">
+            <ChatArea chats={this.props.chats} />
+          </section>
           <section className="chat-input">
             <input
               placeholder="Type message here…"
