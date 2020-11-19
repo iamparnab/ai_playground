@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { addNewTab, selectTab, applyChanges, removeTab } from '../../actions';
 import { StoreType } from '../../store/model';
 import Button from '../button';
-import MonacoWrapper from '../monaco-wrapper';
 import Tabs from '../tabs';
 import { Props } from './models';
 
 import './styles.css';
+
+const MonacoWrapper = React.lazy(() => import('../monaco-wrapper'));
 
 class Editor extends React.Component<Props> {
   render() {
@@ -30,7 +31,9 @@ class Editor extends React.Component<Props> {
             />
           </div>
         </div>
-        <MonacoWrapper />
+        <React.Suspense fallback="Loading editor...">
+          <MonacoWrapper />
+        </React.Suspense>
       </section>
     );
   }
