@@ -8,6 +8,8 @@ type PropsFromConnect = {
 };
 type ActionsFromConnect = {
   setCode: (code: string) => void;
-  applyChanges: () => void;
+  // noShow will control whether to
+  // silently apply changes
+  applyChanges: (noShow: boolean) => void;
 };
 export type Props = _Props & PropsFromConnect & ActionsFromConnect;

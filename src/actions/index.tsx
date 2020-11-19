@@ -29,9 +29,11 @@ export function setCode(code: string): ActionType {
   };
 }
 
-export function applyChanges(): Function {
+export function applyChanges(noShow?: boolean): Function {
   return async function (dispatch: DispatchType) {
     const { code } = store.getState();
+    let toasterMessage = APPLY_SUCCESS_MESSAGE;
+
     try {
       /**
        * Check for erros before applying.
@@ -41,17 +43,15 @@ export function applyChanges(): Function {
       dispatch({
         type: Actions.APPLY_CHANGES,
       });
-      dispatch({
-        type: Actions.SHOW_TOASTER,
-        payload: {
-          text: APPLY_SUCCESS_MESSAGE,
-        },
-      });
     } catch (_) {
+      toasterMessage = APPLY_FAILURE_MESSAGE;
+    }
+
+    if (Boolean(noShow) === false) {
       dispatch({
         type: Actions.SHOW_TOASTER,
         payload: {
-          text: APPLY_FAILURE_MESSAGE,
+          text: toasterMessage,
         },
       });
     }

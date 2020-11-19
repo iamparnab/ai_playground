@@ -27,6 +27,10 @@ export type ShowToasterType = {
   text: string;
 };
 
+export type ApplyChangesType = {
+  noShow?: boolean;
+};
+
 export enum Actions {
   ADD_NEW_TAB,
   SELECT_TAB,
@@ -41,6 +45,7 @@ export enum Actions {
 }
 
 export type PayloadType =
+  | ApplyChangesType
   | ShowToasterType
   | RemoveTabType
   | BotResponseType

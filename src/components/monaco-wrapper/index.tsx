@@ -25,7 +25,11 @@ class MonacoWrapper extends React.Component<Props> {
   }
   componentDidMount() {
     this.props.setCode(DEFAULT_CODE);
-    this.props.applyChanges();
+    /**
+     * At landing, do not show Apply
+     * changes notification.
+     */
+    this.props.applyChanges(true);
   }
 
   handleEditorChange = (_: any, value: string | undefined) => {
