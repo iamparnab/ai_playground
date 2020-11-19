@@ -13,4 +13,5 @@ export type StoreType = {
     text: string;
     isVisible: boolean;
   };
+  isProcessingQuery: boolean;
 };

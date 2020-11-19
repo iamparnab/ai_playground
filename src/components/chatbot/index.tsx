@@ -33,7 +33,10 @@ class Chatbot extends React.Component<Props> {
       <section className="ap-cb-w">
         <div>
           <section className="chatarea-wrapper">
-            <ChatArea chats={this.props.chats} />
+            <ChatArea
+              chats={this.props.chats}
+              isProcessingQuery={this.props.isProcessingQuery}
+            />
           </section>
           <section className="chat-input">
             <input
@@ -51,7 +54,11 @@ class Chatbot extends React.Component<Props> {
 }
 
 export default connect(
-  (store: StoreType) => ({ chats: store.chats, chatInput: store.chatInput }),
+  (store: StoreType) => ({
+    chats: store.chats,
+    chatInput: store.chatInput,
+    isProcessingQuery: store.isProcessingQuery,
+  }),
   {
     runQuery,
     updateChatInput,

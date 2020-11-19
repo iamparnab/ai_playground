@@ -42,6 +42,7 @@ export enum Actions {
   REMOVE_TAB,
   SHOW_TOASTER,
   HIDE_TOASTER,
+  TOGGLE_QUERY_PROCESSING,
 }
 
 export type PayloadType =

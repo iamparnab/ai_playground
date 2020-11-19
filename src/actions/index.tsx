@@ -85,6 +85,13 @@ export function updateChatInput(chatInput: string): ActionType {
 
 export function runQuery(query: string): Function {
   return async function (dispatch: DispatchType) {
+    /**
+     * Toggle loader to show it.
+     */
+    dispatch({
+      type: Actions.TOGGLE_QUERY_PROCESSING,
+    });
+
     dispatch({
       type: Actions.RUN_QUERY,
       payload: {
@@ -97,6 +104,13 @@ export function runQuery(query: string): Function {
     const response = await eval(
       `${codeToEvalute};init();respond('${query.replaceAll("'", "\\'")}')`
     );
+
+    /**
+     * Toggle loader again to hide it.
+     */
+    dispatch({
+      type: Actions.TOGGLE_QUERY_PROCESSING,
+    });
 
     dispatch({
       type: Actions.ADD_BOT_RESPONSE,

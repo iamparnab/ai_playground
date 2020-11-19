@@ -19,11 +19,16 @@ export function ChatArea(props: Props) {
       {props.chats.map((eachChat) => {
         return (
           <div key={eachChat.id} className={`each-chat ${eachChat.sender}`}>
-            {eachChat.sender === 'bot' ? '🤖' : '🤓'}
+            <span>{eachChat.sender === 'bot' ? '🤖' : '🤓'}</span>
             <div>{eachChat.text}</div>
           </div>
         );
       })}
+      {props.isProcessingQuery ? (
+        <div className={`each-chat bot`}>
+          <span>🤖</span> <div>💬</div>
+        </div>
+      ) : null}
     </section>
   );
 }

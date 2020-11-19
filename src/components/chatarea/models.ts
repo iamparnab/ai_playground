@@ -6,4 +6,5 @@ export type EachChatType = {
 
 export type Props = {
   chats: EachChatType[];
+  isProcessingQuery: boolean;
 };

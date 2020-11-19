@@ -113,6 +113,13 @@ export function rootReducer(
         },
       };
     }
+
+    case Actions.TOGGLE_QUERY_PROCESSING: {
+      return {
+        ...store,
+        isProcessingQuery: !store.isProcessingQuery,
+      };
+    }
   }
   return store;
 }

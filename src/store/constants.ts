@@ -12,4 +12,5 @@ export const STORE_INIT: StoreType = {
     isVisible: false,
     text: '',
   },
+  isProcessingQuery: false,
 };

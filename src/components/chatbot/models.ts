@@ -5,6 +5,7 @@ export type _Props = {};
 type PropsFromConnect = {
   chats: EachChatType[];
   chatInput: string;
+  isProcessingQuery: boolean;
 };
 
 type ActionsFromConnect = {
