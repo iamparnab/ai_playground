@@ -111,12 +111,40 @@ export function removeTab(tabId: number): Function {
   return function (dispatch: DispatchType) {
     localStorage.removeItem(`tabId_${tabId}`);
 
+    const { tabs, selectedTabId } = store.getState();
+
+    let needsReselection = selectedTabId === tabId,
+      tabIndex = -1,
+      nextSelectedTabId = -1;
+
+    if (needsReselection) {
+      tabIndex = tabs.findIndex((t) => t.tabId === tabId);
+
+      nextSelectedTabId =
+        tabIndex === tabs.length - 1 ? tabIndex - 1 : tabIndex + 1;
+    }
+
     dispatch({
       type: Actions.REMOVE_TAB,
       payload: {
         tabId,
       },
     });
+
+    /**
+     * After removal select the next tab
+     * if the deleted tab was the selected one.
+     * But select the previous tab, if the deleted tab
+     * was the last one.
+     */
+    if (needsReselection) {
+      dispatch({
+        type: Actions.SELECT_TAB,
+        payload: {
+          tabId: tabs[nextSelectedTabId].tabId,
+        },
+      });
+    }
   };
 }
 
