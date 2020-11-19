@@ -19,7 +19,10 @@
     "start": "BROWSER=None react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:clear": "aws s3 rm s3://ai-playground-campk12",
+    "deploy:copy": "aws s3 cp build s3://ai-playground-campk12 --recursive --acl public-read",
+    "deploy": "npm run deploy:clear && npm run deploy:copy && echo 'Go to http://ai-playground-campk12.s3-website.us-east-2.amazonaws.com'"
   },
   "eslintConfig": {
     "extends": [
