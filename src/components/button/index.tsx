@@ -7,7 +7,7 @@ function Button(props: Props) {
   return (
     <button
       className={`ap-button type-${props.themeType} clickable ${
-        props.disabled ? 'disabled' : null
+        props.disabled ? 'disabled' : ''
       }`}
       onClick={() => props.onClick()}
     >

@@ -19,7 +19,6 @@
   font-size: 0.75rem;
   color: var(--primary-font-color);
   font-weight: 500;
-  white-space: nowrap;
   border-bottom-color: transparent;
   opacity: 0.5;
 }

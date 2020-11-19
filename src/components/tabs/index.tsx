@@ -36,14 +36,17 @@ export default class Tabs extends React.Component<Props> {
               return (
                 <div
                   className={`clickable ${
-                    this.props.selectedTabId === eachTab.tabId
-                      ? 'selected'
-                      : null
+                    this.props.selectedTabId === eachTab.tabId ? 'selected' : ''
                   }`}
                   key={eachTab.tabId}
                   onClick={() => this.props.onSelect(eachTab.tabId)}
+                  title={eachTab.tabName}
                 >
-                  {eachTab.tabName}
+                  <span className="ellipsis">{eachTab.tabName}</span>
+                  {/**
+                   * Do not provide remove option for
+                   * 0th index element.
+                   */}
                   {index > 0 ? (
                     <span
                       className="clickable cross-mark"
