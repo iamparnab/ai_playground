@@ -1,5 +1,6 @@
 import { Actions, ActionType } from './model';
 import { DispatchType, store } from '../store';
+import { APPLY_FAILURE_MESSAGE, APPLY_SUCCESS_MESSAGE } from '../constants';
 
 export function addNewTab(tabName: string): ActionType {
   return {
@@ -28,9 +29,32 @@ export function setCode(code: string): ActionType {
   };
 }
 
-export function applyChanges(): ActionType {
-  return {
-    type: Actions.APPLY_CHANGES,
+export function applyChanges(): Function {
+  return async function (dispatch: DispatchType) {
+    const { code } = store.getState();
+    try {
+      /**
+       * Check for erros before applying.
+       */
+      await eval(code);
+
+      dispatch({
+        type: Actions.APPLY_CHANGES,
+      });
+      dispatch({
+        type: Actions.SHOW_TOASTER,
+        payload: {
+          text: APPLY_SUCCESS_MESSAGE,
+        },
+      });
+    } catch (_) {
+      dispatch({
+        type: Actions.SHOW_TOASTER,
+        payload: {
+          text: APPLY_FAILURE_MESSAGE,
+        },
+      });
+    }
   };
 }
 
@@ -77,5 +101,20 @@ export function removeTab(tabId: number): Function {
         tabId,
       },
     });
+  };
+}
+
+export function showToaster(text: string): ActionType {
+  return {
+    type: Actions.SHOW_TOASTER,
+    payload: {
+      text,
+    },
+  };
+}
+
+export function hideToaster(): ActionType {
+  return {
+    type: Actions.HIDE_TOASTER,
   };
 }

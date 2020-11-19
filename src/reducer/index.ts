@@ -8,6 +8,7 @@ import {
   RunQueryType,
   BotResponseType,
   RemoveTabType,
+  ShowToasterType,
 } from '../actions/model';
 
 import { STORE_INIT } from '../store/constants';
@@ -91,6 +92,26 @@ export function rootReducer(
       return {
         ...store,
         tabs: store.tabs.filter((t) => t.tabId !== tabIdToDelete),
+      };
+    }
+
+    case Actions.SHOW_TOASTER: {
+      return {
+        ...store,
+        toasterConfig: {
+          text: (action.payload as ShowToasterType).text,
+          isVisible: true,
+        },
+      };
+    }
+
+    case Actions.HIDE_TOASTER: {
+      return {
+        ...store,
+        toasterConfig: {
+          text: '',
+          isVisible: false,
+        },
       };
     }
   }

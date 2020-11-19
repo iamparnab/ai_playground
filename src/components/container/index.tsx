@@ -4,6 +4,7 @@ import { store } from '../../store';
 
 import { Header } from '../header';
 import InteractiveArea from '../interactive_area';
+import Toaster from '../toaster';
 import { Props } from './models';
 
 import './styles.css';
@@ -15,6 +16,7 @@ class Container extends React.Component<Props> {
         <Provider store={store}>
           <Header title="AI Playground" />
           <InteractiveArea />
+          <Toaster />
         </Provider>
       </main>
     );

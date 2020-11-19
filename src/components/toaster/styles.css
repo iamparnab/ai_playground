@@ -1,0 +1,24 @@
+.ap-toaster-w {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.ap-toaster-w .toaster-body {
+  background-color: var(--secondary-bg-color);
+  width: 200px;
+  padding: 1rem;
+  border-radius: 4px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -999px);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  font-size: 0.875rem;
+  transition: transform ease-in-out 0.5s;
+}
+.ap-toaster-w .toaster-body.visible {
+  transform: translate(-50%, 10px);
+}

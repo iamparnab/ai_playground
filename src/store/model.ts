@@ -9,4 +9,8 @@ export type StoreType = {
   chats: EachChatType[];
   chatInput: string;
   hasContentChanged: boolean;
+  toasterConfig: {
+    text: string;
+    isVisible: boolean;
+  };
 };

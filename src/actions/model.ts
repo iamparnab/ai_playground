@@ -23,6 +23,10 @@ export type RemoveTabType = {
   tabId: number;
 };
 
+export type ShowToasterType = {
+  text: string;
+};
+
 export enum Actions {
   ADD_NEW_TAB,
   SELECT_TAB,
@@ -32,9 +36,12 @@ export enum Actions {
   RUN_QUERY,
   ADD_BOT_RESPONSE,
   REMOVE_TAB,
+  SHOW_TOASTER,
+  HIDE_TOASTER,
 }
 
 export type PayloadType =
+  | ShowToasterType
   | RemoveTabType
   | BotResponseType
   | ChatInputType

@@ -8,4 +8,8 @@ export const STORE_INIT: StoreType = {
   chats: [{ id: 1, sender: 'bot', text: 'Hi! How can I help you?' }],
   chatInput: '',
   hasContentChanged: true,
+  toasterConfig: {
+    isVisible: false,
+    text: '',
+  },
 };
