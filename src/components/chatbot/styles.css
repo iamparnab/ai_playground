@@ -1,5 +1,6 @@
 .ap-cb-w {
   display: flex;
+  width: 60%;
 }
 .ap-cb-w > div {
   margin: auto;
