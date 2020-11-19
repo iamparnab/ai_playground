@@ -46,7 +46,7 @@ export function setCode(code: string): ActionType {
 }
 
 export function applyChanges(noShow?: boolean): Function {
-  return async function (dispatch: DispatchType) {
+  return function (dispatch: DispatchType) {
     const { code } = store.getState();
     let toasterMessage = APPLY_SUCCESS_MESSAGE;
 
@@ -54,7 +54,13 @@ export function applyChanges(noShow?: boolean): Function {
       /**
        * Check for erros before applying.
        */
-      await eval(code);
+      eval(`
+        ${code};
+        window.campk12Init = init;
+        window.campk12Respond = respond;
+        // Run init once;
+        window.campk12Init();
+      `);
 
       dispatch({
         type: Actions.APPLY_CHANGES,
@@ -99,10 +105,8 @@ export function runQuery(query: string): Function {
       },
     });
 
-    const { codeToEvalute } = store.getState();
-
     const response = await eval(
-      `${codeToEvalute};init();respond('${query.replaceAll("'", "\\'")}')`
+      `campk12Respond('${query.replaceAll("'", "\\'")}')`
     );
 
     /**
