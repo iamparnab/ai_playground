@@ -2,12 +2,28 @@ import { Actions, ActionType } from './model';
 import { DispatchType, store } from '../store';
 import { APPLY_FAILURE_MESSAGE, APPLY_SUCCESS_MESSAGE } from '../constants';
 
-export function addNewTab(tabName: string): ActionType {
-  return {
-    type: Actions.ADD_NEW_TAB,
-    payload: {
-      tabName,
-    },
+export function addNewTab(tabName: string): Function {
+  return function (dispach: DispatchType) {
+    const { tabs } = store.getState();
+    /**
+     * Add new tab
+     */
+    dispach({
+      type: Actions.ADD_NEW_TAB,
+      payload: {
+        tabName,
+      },
+    });
+
+    /**
+     * Select the last tab
+     */
+    dispach({
+      type: Actions.SELECT_TAB,
+      payload: {
+        tabId: tabs[tabs.length - 1].tabId + 1,
+      },
+    });
   };
 }
 

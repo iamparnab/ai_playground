@@ -48,8 +48,9 @@ export default class Tabs extends React.Component<Props> {
                     <span
                       className="clickable cross-mark"
                       onClick={(e) => this.handleTabRemove(e, eachTab.tabId)}
+                      title="Close tab"
                     >
-                      x
+                      &times;
                     </span>
                   ) : null}
                 </div>
