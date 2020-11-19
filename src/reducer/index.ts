@@ -27,8 +27,7 @@ export function rootReducer(
           ...store.tabs,
           {
             tabId,
-            tabName:
-              (action.payload as NewTabType).tabName + ' ' + tabId + '.js',
+            tabName: (action.payload as NewTabType).tabName + tabId + '.js',
           },
         ],
       };

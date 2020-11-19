@@ -59,7 +59,7 @@ export default class Tabs extends React.Component<Props> {
         </section>
         <Button
           title="+"
-          onClick={() => this.props.onCreate('Untitled')}
+          onClick={() => this.props.onCreate('Untitled-')}
           themeType={1}
           disabled={false}
         />
