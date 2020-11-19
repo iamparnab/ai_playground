@@ -14,14 +14,14 @@ function init() {
  * This function will run every time when user performs some action.
  * You can remove "async" keyword if you don't have any await function inside this function
  */
-function respond(inputText) {
+async function respond(inputText) {
   // BOT LOGIC GOES HERE
   // 'inputText' is the text entered 
   // by the user speaking to your bot
   
   // When you are done, return a string
   // you want to send back to the user
-  return inputText;
+  return await new Promise(res => setTimeout(() => res('Hello'), 1000));
 }`;
 
 export const APPLY_SUCCESS_MESSAGE = 'Changes are applied.';
