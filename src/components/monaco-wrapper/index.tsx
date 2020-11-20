@@ -7,15 +7,14 @@ import { Props } from './models';
 import { StoreType } from '../../store/model';
 import { DEFAULT_CODE } from '../../constants';
 import { setCode, applyChanges } from '../../actions';
+import { BrowserStorage } from '../../utils';
 
 class MonacoWrapper extends React.Component<Props> {
   componentDidUpdate(prevProps: Props) {
     if (this.props.selectedTabId !== prevProps.selectedTabId) {
-      localStorage.setItem(`tabId_${prevProps.selectedTabId}`, this.props.code);
+      BrowserStorage.set(`tabId_${prevProps.selectedTabId}`, this.props.code);
 
-      let currentCode = localStorage.getItem(
-        `tabId_${this.props.selectedTabId}`
-      );
+      let currentCode = BrowserStorage.get(`tabId_${this.props.selectedTabId}`);
       if (currentCode === null) {
         currentCode = DEFAULT_CODE;
       }

@@ -2,6 +2,7 @@ import { Actions, ActionType } from './model';
 import { DispatchType, store } from '../store';
 import { APPLY_FAILURE_MESSAGE, APPLY_SUCCESS_MESSAGE } from '../constants';
 import { WindowExtended } from '../models.ts';
+import { BrowserStorage } from '../utils';
 
 declare const window: WindowExtended;
 
@@ -136,7 +137,7 @@ export function runQuery(query: string): Function {
 
 export function removeTab(tabId: number): Function {
   return function (dispatch: DispatchType) {
-    localStorage.removeItem(`tabId_${tabId}`);
+    BrowserStorage.remove(`tabId_${tabId}`);
 
     const { tabs, selectedTabId } = store.getState();
 
