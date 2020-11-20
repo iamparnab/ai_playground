@@ -31,3 +31,4 @@ export const APPLY_FAILURE_MESSAGE = 'Resolve the errors first';
 export const TRANSLATION_FAILURE_MESSAGE = 'Translation failed';
 
 export const TRANSLATE_API_URL = 'http://3.15.188.11:8888';
+export const DEBOUNCE_TIME = 300;

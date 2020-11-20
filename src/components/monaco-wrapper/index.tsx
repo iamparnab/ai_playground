@@ -5,11 +5,17 @@ import { connect } from 'react-redux';
 import './styles.css';
 import { Props } from './models';
 import { StoreType } from '../../store/model';
-import { DEFAULT_CODE } from '../../constants';
+import { DEBOUNCE_TIME, DEFAULT_CODE } from '../../constants';
 import { setCode, applyChanges } from '../../actions';
-import { BrowserStorage } from '../../utils';
+import { BrowserStorage, Debouncer } from '../../utils';
 
 class MonacoWrapper extends React.Component<Props> {
+  debouncer: Debouncer;
+
+  constructor(props: Props) {
+    super(props);
+    this.debouncer = new Debouncer(DEBOUNCE_TIME);
+  }
   componentDidUpdate(prevProps: Props) {
     if (this.props.selectedTabId !== prevProps.selectedTabId) {
       BrowserStorage.set(`tabId_${prevProps.selectedTabId}`, this.props.code);
@@ -32,7 +38,12 @@ class MonacoWrapper extends React.Component<Props> {
   }
 
   handleEditorChange = (_: any, value: string | undefined) => {
-    this.props.setCode(value || '');
+    /**
+     * No need to update in every change
+     */
+    this.debouncer.execute(() => {
+      this.props.setCode(value || '');
+    });
   };
 
   render() {

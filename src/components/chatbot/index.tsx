@@ -25,7 +25,7 @@ class Chatbot extends React.Component<Props> {
   };
 
   handleOnChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.updateChatInput(this.inputRef.current?.value || '');
+    this.props.updateChatInput(ev.target.value);
   };
 
   render() {
