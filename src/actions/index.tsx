@@ -56,10 +56,11 @@ export function applyChanges(noShow?: boolean): Function {
        */
       eval(`
         ${code};
-        window.campk12Init = init;
-        window.campk12Respond = respond;
+        window.CampK12 = {};
+        window.CampK12.init = init;
+        window.CampK12.respond = respond;
         // Run init once;
-        window.campk12Init();
+        window.CampK12.init();
       `);
 
       dispatch({
@@ -106,7 +107,7 @@ export function runQuery(query: string): Function {
     });
 
     const response = await eval(
-      `campk12Respond('${query.replaceAll("'", "\\'")}')`
+      `CampK12.respond('${query.replaceAll("'", "\\'")}')`
     );
 
     /**

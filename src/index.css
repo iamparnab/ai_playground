@@ -44,3 +44,9 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@media (max-width: 480px) {
+  body {
+    background-color: var(--primary-bg-color);
+  }
+}

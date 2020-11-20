@@ -46,9 +46,9 @@ class MonacoWrapper extends React.Component<Props> {
           value={this.props.code}
           onChange={this.handleEditorChange}
           options={{
-            fontSize: 'inherit',
-            letterSpacing: '1px',
+            fontSize: '16px',
             fontWeight: 'bold',
+            renderWhitespace: 'all',
           }}
         />
       </div>

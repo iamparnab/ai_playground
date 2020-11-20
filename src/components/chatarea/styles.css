@@ -30,3 +30,9 @@
 .ap-ca-w .each-chat.bot > div {
   margin-left: 1.125rem;
 }
+.ap-ca-w .each-chat.bot.processing > div {
+  background-color: transparent;
+  padding: 0;
+  margin-top: -0.3rem;
+  margin-left: 0.3rem;
+}

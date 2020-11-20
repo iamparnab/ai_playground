@@ -5,7 +5,7 @@ export const STORE_INIT: StoreType = {
   selectedTabId: 1,
   code: '',
   codeToEvalute: '',
-  chats: [{ id: 1, sender: 'bot', text: 'Hi! How can I help you?' }],
+  chats: [{ id: 1, sender: 'bot', text: "Hey! What's your name?" }],
   chatInput: '',
   hasContentChanged: true,
   toasterConfig: {

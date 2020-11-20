@@ -25,7 +25,7 @@ export function ChatArea(props: Props) {
         );
       })}
       {props.isProcessingQuery ? (
-        <div className={`each-chat bot`}>
+        <div className={`each-chat bot processing`}>
           <span>🤖</span> <div>💬</div>
         </div>
       ) : null}

@@ -1,3 +1,8 @@
 .ap-mw-w {
   margin-top: 0.5rem;
 }
+
+.ap-mw-w * {
+  font-family: 'Inconsolata', monospace;
+  font-weight: normal;
+}
