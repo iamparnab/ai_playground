@@ -7,6 +7,64 @@ import Container from './components/container';
 
 import './index.css';
 
+import { WindowExtended } from './models.ts';
+import { TRANSLATE_API_URL, TRANSLATION_FAILURE_MESSAGE } from './constants';
+
+declare const window: WindowExtended;
+
+/**
+ * Implement CampK12 translate method
+ */
+if (typeof window.CampK12 === 'undefined') {
+  window.CampK12 = {
+    init: () => {},
+    respond: () => '',
+    translate: () => Promise.resolve(''),
+  };
+}
+
+window.CampK12.translate = function (
+  text: string,
+  source: string,
+  target: string
+) {
+  return new Promise((resolve) => {
+    function handleFailure() {
+      resolve(TRANSLATION_FAILURE_MESSAGE);
+    }
+    /**
+     * Lazy load it.
+     */
+    import('../src/constants/language_codes')
+      .then(({ LANGUAGE_CODES }) => {
+        type keyType = keyof typeof LANGUAGE_CODES;
+
+        fetch(
+          TRANSLATE_API_URL +
+            '?' +
+            new URLSearchParams({
+              text,
+              source: LANGUAGE_CODES[source as keyType],
+              target: LANGUAGE_CODES[target as keyType],
+            })
+        )
+          .then((response) => {
+            if (response.ok) {
+              response.json().then((data) => resolve(data.TranslatedText));
+            } else {
+              handleFailure();
+            }
+          })
+          .catch(() => {
+            handleFailure();
+          });
+      })
+      .catch(() => {
+        handleFailure();
+      });
+  });
+};
+
 ReactDOM.render(
   <React.StrictMode>
     <Container />

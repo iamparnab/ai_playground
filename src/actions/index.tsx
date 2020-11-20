@@ -1,6 +1,9 @@
 import { Actions, ActionType } from './model';
 import { DispatchType, store } from '../store';
 import { APPLY_FAILURE_MESSAGE, APPLY_SUCCESS_MESSAGE } from '../constants';
+import { WindowExtended } from '../models.ts';
+
+declare const window: WindowExtended;
 
 export function addNewTab(tabName: string): Function {
   return function (dispach: DispatchType) {
@@ -56,12 +59,12 @@ export function applyChanges(noShow?: boolean): Function {
        */
       eval(`
         ${code};
-        window.CampK12 = {};
         window.CampK12.init = init;
         window.CampK12.respond = respond;
-        // Run init once;
-        window.CampK12.init();
       `);
+
+      // Run init once;
+      window.CampK12.init();
 
       dispatch({
         type: Actions.APPLY_CHANGES,
@@ -106,9 +109,7 @@ export function runQuery(query: string): Function {
       },
     });
 
-    const response = await eval(
-      `CampK12.respond('${query.replaceAll("'", "\\'")}')`
-    );
+    const response = await window.CampK12.respond(query);
 
     /**
      * Toggle loader again to hide it.
