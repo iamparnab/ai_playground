@@ -52,16 +52,23 @@ export function applyChanges(noShow?: boolean): Function {
   return function (dispatch: DispatchType) {
     const { code } = store.getState();
     let toasterMessage = APPLY_SUCCESS_MESSAGE;
-
+    /**
+     * Check for erros before applying.
+     */
     try {
       /**
-       * Check for erros before applying.
+       * Create a function using Function constructor
        */
-      eval(`
+      const fn = new Function(`
         ${code};
         window.CampK12.init = init;
         window.CampK12.respond = respond;
       `);
+
+      /**
+       * Run the function
+       */
+      fn();
 
       // Run init once;
       window.CampK12.init();
