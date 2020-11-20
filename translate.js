@@ -13,7 +13,12 @@ const server = http.createServer(async (req, res) => {
 
   console.log('Request from ', req.connection.remoteAddress);
 
-  res.writeHead(200, { 'Content-type': 'application/json' });
+  res.writeHead(200, {
+    'Content-type': 'application/json',
+    'Access-control-allow-origin':
+      'ai-playground-campk12.s3-website.us-east-2.amazonaws.com',
+    'Access-control-allow-methods': 'GET',
+  });
   res.write(stdout);
   res.end();
 });
