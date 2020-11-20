@@ -13,4 +13,6 @@ type ActionsFromConnect = {
 type PropsFromConnect = {
   tabs: EachTabType[];
   selectedTabId: number;
+  code: string;
+  codeToEvaluate: string;
 };

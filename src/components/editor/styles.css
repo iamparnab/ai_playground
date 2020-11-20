@@ -14,8 +14,20 @@
   padding-right: 0.25rem;
 }
 
+.ap-editor-w .ap-tabs-w {
+  width: 80%;
+}
 @media (max-width: 480px) {
   .ap-editor-w {
     display: none;
+  }
+}
+
+@media (max-width: 1376px) {
+  .ap-editor-w .ap-tabs-w {
+    width: 65%;
+  }
+  .ap-editor-w .btn-wrapper {
+    width: 35%;
   }
 }

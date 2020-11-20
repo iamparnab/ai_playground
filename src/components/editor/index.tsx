@@ -27,7 +27,7 @@ class Editor extends React.Component<Props> {
               onClick={() => this.props.applyChanges()}
               title="Apply changes"
               themeType={2}
-              disabled={false}
+              disabled={this.props.code === this.props.codeToEvaluate}
             />
           </div>
         </div>
@@ -43,6 +43,8 @@ export default connect(
   (store: StoreType) => ({
     tabs: store.tabs,
     selectedTabId: store.selectedTabId,
+    code: store.code,
+    codeToEvaluate: store.codeToEvalute,
   }),
   {
     addNewTab,

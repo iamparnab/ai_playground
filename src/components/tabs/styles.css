@@ -1,6 +1,6 @@
 .ap-tabs-w {
   display: flex;
-  width: 80%;
+  width: 100%;
   border-bottom: 2px solid #2b2b2b;
 }
 .ap-tabs-w section {
