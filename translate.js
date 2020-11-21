@@ -12,9 +12,20 @@ const allowedOrigins = [
 
 const server = http.createServer(async (req, res) => {
   const { text, source, target } = parse(req.url, true).query;
-  const { stdout } = await execPromised(
-    `aws translate translate-text --text '${text}' --source-language-code ${source} --target-language-code ${target}`
-  );
+
+  let response = '';
+
+  try {
+    const { stdout } = await execPromised(
+      `aws translate translate-text --text '${text}' --source-language-code ${source} --target-language-code ${target}`
+    );
+    response = stdout;
+  } catch (err) {
+    response = JSON.stringify({
+      TranslatedText: 'Call signature is not correct',
+    });
+    console.table({ Message: err.message });
+  }
 
   console.log('Request from ', req.connection.remoteAddress);
 
@@ -26,7 +37,7 @@ const server = http.createServer(async (req, res) => {
 
     'Access-control-allow-methods': 'GET',
   });
-  res.write(stdout);
+  res.write(response);
   res.end();
 });
 
