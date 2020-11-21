@@ -1,6 +1,10 @@
 import { Actions, ActionType } from './model';
 import { DispatchType, store } from '../store';
-import { APPLY_FAILURE_MESSAGE, APPLY_SUCCESS_MESSAGE } from '../constants';
+import {
+  APPLY_FAILURE_MESSAGE,
+  APPLY_SUCCESS_MESSAGE,
+  ERROR_BOUNDARY_MESSAGE,
+} from '../constants';
 import { WindowExtended } from '../models.ts';
 import { BrowserStorage } from '../utils';
 
@@ -117,7 +121,16 @@ export function runQuery(query: string): Function {
       },
     });
 
-    const response = await window.CampK12.respond(query);
+    let response = '';
+    /**
+     * Handling runtime errors in the code
+     */
+    try {
+      response = await window.CampK12.respond(query);
+    } catch (err) {
+      response = ERROR_BOUNDARY_MESSAGE;
+      console.table({ Message: err.message });
+    }
 
     /**
      * Toggle loader again to hide it.
