@@ -22,7 +22,7 @@ async function respond(inputText) {
   // When you are done, return a string
   // you want to send back to the user
   return await new Promise(res => {
-    setTimeout(() => res('Hello ' + inputText), 1000)
+    setTimeout(() => res('Hello ' + inputText), 1000);
   });
 }`;
 
