@@ -9,6 +9,7 @@ import './index.css';
 
 import { WindowExtended } from './models.ts';
 import { TRANSLATE_API_URL, TRANSLATION_FAILURE_MESSAGE } from './constants';
+import { ErrorBoundary } from './utils/error_boundary';
 
 declare const window: WindowExtended;
 
@@ -18,7 +19,7 @@ declare const window: WindowExtended;
 if (typeof window.CampK12 === 'undefined') {
   window.CampK12 = {
     init: () => {},
-    respond: () => '',
+    respond: () => {},
     translate: () => Promise.resolve(''),
   };
 }
@@ -66,9 +67,11 @@ window.CampK12.translate = function (
 };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Container />
-  </React.StrictMode>,
+  <ErrorBoundary>
+    <React.StrictMode>
+      <Container />
+    </React.StrictMode>
+  </ErrorBoundary>,
   document.getElementById('root')
 );
 

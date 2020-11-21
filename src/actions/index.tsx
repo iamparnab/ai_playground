@@ -129,7 +129,7 @@ export function runQuery(query: string): Function {
     dispatch({
       type: Actions.ADD_BOT_RESPONSE,
       payload: {
-        response,
+        response: String(response),
       },
     });
   };
