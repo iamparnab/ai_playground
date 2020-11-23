@@ -27,7 +27,7 @@ const server = http.createServer(async (req, res) => {
     console.table({ Message: err.message });
   }
 
-  console.log('Request from ', req.connection.remoteAddress);
+  console.table({ IP: req.connection.remoteAddress, text, source, target });
 
   res.writeHead(200, {
     'Content-type': 'application/json',
