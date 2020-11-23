@@ -19,11 +19,13 @@ async function respond(inputText) {
   // 'inputText' is the text entered 
   // by the user speaking to your bot
   
+  const language = 'French';
+  const translatedOutput = await CampK12.translate(inputText, 'English', language);
+
+
   // When you are done, return a string
   // you want to send back to the user
-  return await new Promise(res => {
-    setTimeout(() => res('Hello ' + inputText), 1000);
-  });
+  return 'Oh in ' + language + ' that is:\\n' + translatedOutput;
 }`;
 
 export const APPLY_SUCCESS_MESSAGE = 'Changes are applied.';

@@ -29,6 +29,7 @@
 }
 .ap-ca-w .each-chat.bot > div {
   margin-left: 1.125rem;
+  white-space: pre-line;
 }
 .ap-ca-w .each-chat.bot.processing > div {
   background-color: transparent;
