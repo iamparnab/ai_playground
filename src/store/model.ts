@@ -1,5 +1,6 @@
 import { EachTabType } from '../components/tabs/models';
 import { EachChatType } from '../components/chatarea/models';
+import { ActionType } from '../actions/model';
 
 export type StoreType = {
   tabs: EachTabType[];
@@ -15,3 +16,5 @@ export type StoreType = {
   };
   isProcessingQuery: boolean;
 };
+
+export type DispatchType = (action: ActionType) => void;

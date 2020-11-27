@@ -1,12 +1,12 @@
 export const DEFAULT_CODE = `/* Enter your global variables here */
-
+let greeting;
 
 /** 
  * Enter your one-time code here. 
  * This function will run only once in the function's lifetime
  */
 function init() {
-
+  greeting = 'Hello';
 }
   
 /**
@@ -15,17 +15,11 @@ function init() {
  * You can remove "async" keyword if you don't have any await function inside this function
  */
 async function respond(inputText) {
-  // BOT LOGIC GOES HERE
-  // 'inputText' is the text entered 
-  // by the user speaking to your bot
-  
-  const language = 'French';
-  const translatedOutput = await CampK12.translate(inputText, 'English', language);
-
-
-  // When you are done, return a string
-  // you want to send back to the user
-  return 'Oh in ' + language + ' that is:\\n' + translatedOutput;
+  return await new Promise(res => {
+    setTimeout(() => {
+      res(greeting + ' ' +  inputText);
+    }, 1000);
+  })
 }`;
 
 export const APPLY_SUCCESS_MESSAGE = 'Changes are applied.';

@@ -1,5 +1,5 @@
 import { Actions, ActionType } from './model';
-import { DispatchType, store } from '../store';
+import { store } from '../store';
 import {
   APPLY_FAILURE_MESSAGE,
   APPLY_SUCCESS_MESSAGE,
@@ -7,6 +7,7 @@ import {
 } from '../constants';
 import { WindowExtended } from '../models.ts';
 import { BrowserStorage } from '../utils';
+import { DispatchType } from '../store/model';
 
 declare const window: WindowExtended;
 
@@ -71,9 +72,9 @@ export function applyChanges(noShow?: boolean): Function {
       `);
 
       /**
-       * Run the function
+       * Execute the function
        */
-      fn();
+      fn.call(null);
 
       // Run init once;
       window.CampK12.init();
