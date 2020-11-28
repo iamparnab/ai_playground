@@ -14,7 +14,7 @@ class Container extends React.Component<Props> {
     return (
       <main className="ap-main-w">
         <Provider store={store}>
-          <Header title="AI Playground" />
+          <Header title="Program your chatbot using Javascript 🤔" />
           <InteractiveArea />
           <Toaster />
         </Provider>

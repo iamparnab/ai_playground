@@ -14,17 +14,17 @@ import { ErrorBoundary } from './utils/error_boundary';
 declare const window: WindowExtended;
 
 /**
- * Implement CampK12 translate method
+ * Implement Editor translate method
  */
-if (typeof window.CampK12 === 'undefined') {
-  window.CampK12 = {
+if (typeof window.Editor === 'undefined') {
+  window.Editor = {
     init: () => {},
     respond: () => {},
     translate: () => Promise.resolve(''),
   };
 }
 
-window.CampK12.translate = function (
+window.Editor.translate = function (
   text: string,
   source: string,
   target: string

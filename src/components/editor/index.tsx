@@ -25,7 +25,7 @@ class Editor extends React.Component<Props> {
           <div className="btn-wrapper">
             <Button
               onClick={() => this.props.applyChanges()}
-              title="Apply changes"
+              title="Save changes"
               themeType={2}
               disabled={this.props.code === this.props.codeToEvaluate}
             />

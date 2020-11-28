@@ -1,6 +1,7 @@
 .ap-cb-w {
   display: flex;
   width: 50%;
+  background: var(--chatbot-bg-color);
 }
 .ap-cb-w > div {
   margin: auto;
@@ -9,14 +10,15 @@
 
 .ap-cb-w .chat-input {
   height: 4.5rem;
-  background-color: #242424;
-  border-radius: 4px;
+  border-radius: 20px;
+  background: var(--chatbot-bg-color);
+  box-shadow: 20px 20px 60px #bcbcbc, -20px -20px 60px #fefefe;
 }
 .ap-cb-w .chat-input input {
   background-color: transparent;
   width: 100%;
   border: none;
-  color: #a9a9a9;
+  color: #000;
   font-size: 0.875rem;
   padding: 1.6rem;
   padding-left: 2rem;
@@ -28,10 +30,10 @@
 .ap-cb-w .chatarea-wrapper {
   height: 24.5rem;
   padding: 1.25rem;
-  box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.08);
-  background-color: #242424;
-  border-radius: 4px;
   margin-bottom: 2.125rem;
+  border-radius: 20px;
+  background: var(--chatbot-bg-color);
+  box-shadow: 20px 20px 60px #bcbcbc, -20px -20px 60px #fefefe;
 }
 
 @media (max-width: 480px) {

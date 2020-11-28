@@ -1,7 +1,7 @@
 .ap-tabs-w {
   display: flex;
   width: 100%;
-  border-bottom: 2px solid #2b2b2b;
+  border-bottom: 2px solid var(--border-color);
 }
 .ap-tabs-w section {
   display: flex;
@@ -11,9 +11,8 @@
   margin-left: 0.5rem;
 }
 .ap-tabs-w section > div {
-  border: 2px solid #2b2b2b;
-  border-radius: 4px 4px 0 0;
-  border-left-color: transparent;
+  border: 2px solid var(--border-color);
+  border-radius: 10px 10px 0 0;
   padding: 0.5rem 0.9rem 0.5rem 1rem;
   text-align: center;
   font-size: 0.75rem;
@@ -21,6 +20,7 @@
   font-weight: 500;
   border-bottom-color: transparent;
   opacity: 0.5;
+  margin-right: 5px;
 }
 
 .ap-tabs-w section::-webkit-scrollbar {
@@ -30,7 +30,6 @@
 .ap-tabs-w section > div.selected {
   border-bottom-color: transparent;
   opacity: 1;
-  border-left-color: #2b2b2b;
 }
 .ap-tabs-w section > div .cross-mark {
   margin-left: 4px;
@@ -38,5 +37,5 @@
 }
 
 .ap-tabs-w section > div:first-of-type {
-  border-left-color: #2b2b2b;
+  border-left-color: var(--border-color);
 }

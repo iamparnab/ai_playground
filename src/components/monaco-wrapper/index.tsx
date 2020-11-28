@@ -52,7 +52,7 @@ class MonacoWrapper extends React.Component<Props> {
         <ControlledEditor
           height="90vh"
           language="javascript"
-          theme="vs-dark"
+          theme="vs-light"
           value={this.props.code}
           onChange={this.handleEditorChange}
           options={{

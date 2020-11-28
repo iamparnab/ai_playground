@@ -67,8 +67,8 @@ export function applyChanges(noShow?: boolean): Function {
        */
       const fn = new Function(`
         ${code};
-        window.CampK12.init = init;
-        window.CampK12.respond = respond;
+        window.Editor.init = init;
+        window.Editor.respond = respond;
       `);
 
       /**
@@ -77,7 +77,7 @@ export function applyChanges(noShow?: boolean): Function {
       fn.call(null);
 
       // Run init once;
-      window.CampK12.init();
+      window.Editor.init();
 
       dispatch({
         type: Actions.APPLY_CHANGES,
@@ -127,7 +127,7 @@ export function runQuery(query: string): Function {
      * Handling runtime errors in the code
      */
     try {
-      response = await window.CampK12.respond(query);
+      response = await window.Editor.respond(query);
     } catch (err) {
       response = ERROR_BOUNDARY_MESSAGE;
       console.table({ Message: err.message });

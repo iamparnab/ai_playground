@@ -1,5 +1,5 @@
 .ap-editor-w {
-  border-right: solid 2px rgba(255, 255, 255, 0.09);
+  border-right: solid 2px var(--border-color);
   width: 50%;
   padding-top: 0.3rem;
 }
@@ -9,7 +9,7 @@
 }
 
 .ap-editor-w .btn-wrapper {
-  border-bottom: 2px solid #2b2b2b;
+  border-bottom: 2px solid var(--border-color);
   width: 126px;
   padding-right: 0.25rem;
   margin-right: 0.3rem;

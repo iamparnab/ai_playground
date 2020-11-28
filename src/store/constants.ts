@@ -1,7 +1,7 @@
 import { StoreType } from './model';
 
 export const STORE_INIT: StoreType = {
-  tabs: [{ tabId: 1, tabName: 'Untitled-1.js' }],
+  tabs: [{ tabId: 1, tabName: 'File-1.js' }],
   selectedTabId: 1,
   code: '',
   codeToEvalute: '',

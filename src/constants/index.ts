@@ -3,16 +3,13 @@ let greeting;
 
 /** 
  * Enter your one-time code here. 
- * This function will run only once in the function's lifetime
  */
 function init() {
   greeting = 'Hello';
 }
-  
+
 /**
  * Enter your every-time code here.
- * This function will run every time when user performs some action.
- * You can remove "async" keyword if you don't have any await function inside this function
  */
 async function respond(inputText) {
   return await new Promise(res => {

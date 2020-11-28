@@ -1,5 +1,5 @@
 export interface WindowExtended extends Window {
-  CampK12: {
+  Editor: {
     init: Function;
     respond: (inputText: string) => any;
     translate: (

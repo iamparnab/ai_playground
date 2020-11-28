@@ -9,7 +9,7 @@ function Button(props: Props) {
       className={`ap-button type-${props.themeType} clickable ${
         props.disabled ? 'disabled' : ''
       }`}
-      onClick={() => props.onClick()}
+      onClick={() => !props.disabled && props.onClick()}
     >
       {props.title}
     </button>
