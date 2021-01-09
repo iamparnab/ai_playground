@@ -21,9 +21,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy:clear": "aws s3 rm s3://ai-playground-campk12",
-    "deploy:copy": "aws s3 cp build s3://ai-playground-campk12 --recursive --acl public-read",
-    "deploy": "npm run build && npm run deploy:clear && npm run deploy:copy && echo '\nGo to http://ai-playground-campk12.s3-website.us-east-2.amazonaws.com'"
+    "deploy:clear": "aws s3 rm s3://js-codebot",
+    "deploy:copy": "aws s3 cp build s3://js-codebot --recursive --acl public-read",
+    "deploy": "npm run build && npm run deploy:clear && npm run deploy:copy && echo '\nGo to http://js-codebot.s3-website.ap-south-1.amazonaws.com/'"
   },
   "eslintConfig": {
     "extends": [
