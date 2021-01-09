@@ -5,7 +5,7 @@ import {
   APPLY_SUCCESS_MESSAGE,
   ERROR_BOUNDARY_MESSAGE,
 } from '../constants';
-import { WindowExtended } from '../models.ts';
+import { WindowExtended } from '../models';
 import { BrowserStorage } from '../utils';
 import { DispatchType } from '../store/model';
 

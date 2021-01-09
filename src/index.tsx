@@ -7,7 +7,7 @@ import Container from './components/container';
 
 import './index.css';
 
-import { WindowExtended } from './models.ts';
+import { WindowExtended } from './models';
 import { TRANSLATE_API_URL, TRANSLATION_FAILURE_MESSAGE } from './constants';
 import { ErrorBoundary } from './utils/error_boundary';
 
