@@ -6,7 +6,7 @@ const { promisify } = require('util');
 const execPromised = promisify(exec);
 
 const allowedOrigins = [
-  'http://ai-playground-campk12.s3-website.us-east-2.amazonaws.com',
+  'http://js-codebot.s3-website.ap-south-1.amazonaws.com',
   'http://localhost:3000',
 ];
 
